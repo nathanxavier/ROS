@@ -1,0 +1,37 @@
+1) What is the first command you must run in ROS?
+roscore
+
+2) What is the command to run the Turtlesim simulator?
+rosrun turtlesim turtlesim_node
+
+3) What is the command to find the list of all ROS nodes?
+rosnode list
+
+4) What is the command to find the list of all ROS topics?
+rostopic list
+
+5) What is the topic that tells about the position of the turtle?
+/turtle1/pose
+
+6) What is the topic that sends command to the turtle to make it move?
+turtle1/cmd_vel
+
+7) What is the command that tells you information about the topic about velocity?
+rostopic echo /turtle1/cmd_vel
+
+8) What is the node used to publish velocity commands to the turtle?
+teleop_turtle
+
+9) What is the node used to subscribe to velocity commands to the turtle?
+turtlesim
+
+10) What is the command that allows to see the type of message for velocity topic?
+rostopic type /turtle1/cmd_vel
+
+11) What is the content of the velocity message? Explain its content.
+geometry_msgs/Twist
+The geometry means the turtle's velocity is based on the translation and rotation movements of the axis X, Y and Z.
+
+12) What is the content of the position message? Explain its content
+turtlesim/Pose
+The positions of the turtle is based on the whole simulation, being a cartesian plane.
