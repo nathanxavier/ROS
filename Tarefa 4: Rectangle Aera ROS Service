@@ -1,0 +1,47 @@
+1) What is the command used to create a ROS package called ros_service_assignment?
+cd ~/catkin_ws/src
+catkin_create_pkg ros_service_assignment std_msgs rospy roscpp
+
+What is the name of the folder when to create the service file?
+cd ~/catkin_ws/src/ros_service_assignment/srv
+
+3) What is the content of the service file RectangleAreaService.srv?
+float32 width
+float32 height
+---
+float32 area
+
+4) What are the changes you need to do in the CMakeLists.txt. Copy/paste the whole CMakeLists.txt.
+find_package( catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation )
+add_service_files( FILES RectangleAreaService.srv )
+generate_messages( DEPENDENCIES std_msgs )
+
+add_executable(RectangleArea_Server src/RectangleArea_Server.cpp)
+target_link_libraries(RectangleArea_Server ${catkin_LIBRARIES})
+add_dependencies(RectangleArea_Server ros_service_assignment)
+
+add_executable(RectangleArea_Client src/RectangleArea_Client.cpp)
+target_link_libraries(RectangleArea_Client ${catkin_LIBRARIES})
+add_dependencies(RectangleArea_Client ros_service_assignment)
+
+5) What are the changes you need to do the package.xml? Copy/paste the whole package.xml.
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+
+6) What is the command to build the new service and generate executable files?
+cd ~/catkin_ws/
+catkin_make
+
+7) How to make sure that service files are now created?
+rossrv show RectangleAreaService
+
+8) Write the server application (C++ or Python)
+RectangleArea_Server.cpp
+
+9) Write the client application (C++ or Python)
+RectangleArea_Client.cpp
+
+10) What are the commands to test that the application works fine.
+rosrun ros_service_assignment RectangleArea_Server
+
+rosrun ros_service_assignment RectangleArea_Client 2 4
