@@ -3,3 +3,20 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin_make
 
+## ROS Package
+catkin_create_pkg <Package_Name> [Depedence 1] [Depedence 2]
+
+## ROSRun
+roscore
+rosrun turtlesim turtlesim_node     # Node
+rosrun turtlesim turtle_teleop_key  # Node
+
+rosrun <Package_Name>
+
+## Nodes e Topic
+// Node = Entidade
+rosnode -h
+// Topics =  Cria uma comincação estilo Publish e Subscribe entre Nodes
+rostopic -h
+
+## ROS Message
